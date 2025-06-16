@@ -33,6 +33,9 @@ def capture_face(frame_input=None):
         cap.release()
         cv2.destroyAllWindows()
         #return photos
+        if(len(photos)!=3):
+            print("Please capture all three photos")
+            return
         for photo in photos:      
             face = mtcnn(photo)
             if face is not None:
