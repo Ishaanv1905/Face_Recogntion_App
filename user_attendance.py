@@ -58,7 +58,7 @@ def mark_attendance():
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
                 log_attendance(emp_id, name)
-                print(distance)
+                #print(distance)
                 cv2.imshow('Attendance', frame)
                 cv2.waitKey(3000)
                 break
@@ -81,7 +81,7 @@ def log_attendance(emp_id, name):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with sqlite3.connect('App_Database.db') as conn:
         cursor = conn.cursor()
-        cursor.execute(''' INSERT INTO attendance (employee_id, name, timestamp VALUES (?, ?, ?)
+        cursor.execute(''' INSERT INTO attendance (employee_id, name, timestamp) VALUES (?, ?, ?)
         ''', (emp_id, name, timestamp))
         conn.commit()
 
