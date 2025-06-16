@@ -1,6 +1,6 @@
 #main code
-from registration import register_user
-from attendance import mark_attendance
+from user_registration import register_user
+from user_attendance import mark_attendance
 import sqlite3
 
 with sqlite3.connect('App_Database.db') as conn:
